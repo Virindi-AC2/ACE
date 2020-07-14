@@ -16,7 +16,11 @@ namespace ACE.DatLoader.FileTypes
         public override void Unpack(BinaryReader reader)
         {
             Id = reader.ReadUInt32();
-            reader.BaseStream.Position += 4;
+	    uint dummy = reader.ReadUInt32();
+
+		System.Console.WriteLine("Chargen "+Id.ToString("X8")+",  " + dummy.ToString("X8"));
+
+            //reader.BaseStream.Position += 4;
 
             StarterAreas.UnpackSmartArray(reader);
 

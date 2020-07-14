@@ -22,6 +22,12 @@
     <ApplicationIcon>images\ace_retro_icon_2.ico</ApplicationIcon>
   </PropertyGroup>
 
+<ItemGroup>
+  <Reference Include="Server">
+	  <HintPath>../../Server/Server.dll</HintPath>
+  </Reference>
+</ItemGroup>
+
   <ItemGroup>
     <None Remove="starterGear.json" />
     <None Include="..\..\LICENSE">

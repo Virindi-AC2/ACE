@@ -39,6 +39,8 @@ namespace ACE.DatLoader
         public static void UnpackSmartArray<T>(this List<T> value, BinaryReader reader) where T : IUnpackable, new()
         {
             var totalObjects = reader.ReadCompressedUInt32();
+	    //System.Console.WriteLine("UnpackSmartArray<T> where T is: "+typeof(T).Name + ", length: " + totalObjects.ToString());
+	    //System.Console.WriteLine("Current pos: " + reader.BaseStream.Position.ToString());
 
             for (int i = 0; i < totalObjects; i++)
             {

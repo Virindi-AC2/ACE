@@ -59,21 +59,6 @@
                     "stacksize": "1"
                 },
                 {
-                    "weenieId": "33613",
-                    "name": "Pathwarden Token",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "259",
-                    "name": "Bread",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "31000",
-                    "name": "Blackmoor's Favor",
-                    "stacksize": "1"
-                },
-                {
                     "weenieId": "20646",
                     "name": "Ust",
                     "stacksize": "1"
@@ -268,24 +253,9 @@
             "name": "Creature Enchantment",
             "gear": [
                 {
-                    "weenieId": "12748",
-                    "name": "Training Wand",
+                    "weenieId": "5539",
+                    "name": "Wand",
                     "stacksize": "1"
-                },
-                {
-                    "weenieId": "15268",
-                    "name": "Foci of Enchantment",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "691",
-                    "name": "Lead Scarab",
-                    "stacksize": "5"
-                },
-                {
-                    "weenieId": "20631",
-                    "name": "Prismatic Taper",
-                    "stacksize": "25"
                 }
             ],
             "spells": [
@@ -321,24 +291,9 @@
             "name": "Item Enchantment",
             "gear": [
                 {
-                    "weenieId": "12748",
-                    "name": "Training Wand",
+                    "weenieId": "5539",
+                    "name": "Wand",
                     "stacksize": "1"
-                },
-                {
-                    "weenieId": "15269",
-                    "name": "Foci of Artifice",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "691",
-                    "name": "Lead Scarab",
-                    "stacksize": "5"
-                },
-                {
-                    "weenieId": "20631",
-                    "name": "Prismatic Taper",
-                    "stacksize": "25"
                 }
             ],
             "spells": [
@@ -379,24 +334,9 @@
             "name": "Life Magic",
             "gear": [
                 {
-                    "weenieId": "12748",
-                    "name": "Training Wand",
+                    "weenieId": "5539",
+                    "name": "Wand",
                     "stacksize": "1"
-                },
-                {
-                    "weenieId": "15270",
-                    "name": "Foci of Verdancy",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "691",
-                    "name": "Lead Scarab",
-                    "stacksize": "5"
-                },
-                {
-                    "weenieId": "20631",
-                    "name": "Prismatic Taper",
-                    "stacksize": "25"
                 }
             ],
             "spells": [
@@ -442,24 +382,9 @@
             "name": "War Magic",
             "gear": [
                 {
-                    "weenieId": "12748",
-                    "name": "Training Wand",
+                    "weenieId": "5539",
+                    "name": "Wand",
                     "stacksize": "1"
-                },
-                {
-                    "weenieId": "15271",
-                    "name": "Foci of Strife",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "691",
-                    "name": "Lead Scarab",
-                    "stacksize": "5"
-                },
-                {
-                    "weenieId": "20631",
-                    "name": "Prismatic Taper",
-                    "stacksize": "25"
                 }
             ],
             "spells": [
@@ -552,39 +477,12 @@
                     "weenieId": "4751",
                     "name": "Mortar and Pestle",
                     "stacksize": "1"
-                },
-                {
-                    "weenieId": "2414",
-                    "name": "Azurite",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "2414",
-                    "name": "Azurite",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "2414",
-                    "name": "Azurite",
-                    "stacksize": "1"
                 }
             ]
         },
         {
             "id": "39",
-            "name": "Cooking",
-            "gear": [
-                {
-                    "weenieId": "4761",
-                    "name": "Flour",
-                    "stacksize": "6"
-                },
-                {
-                    "weenieId": "4746",
-                    "name": "Water",
-                    "stacksize": "6"
-                }
-            ]
+            "name": "Cooking"
         },
         {
             "id": "40",
@@ -606,24 +504,9 @@
             "name": "Void Magic",
             "gear": [
                 {
-                    "weenieId": "12748",
-                    "name": "Training Wand",
+                    "weenieId": "5539",
+                    "name": "Wand",
                     "stacksize": "1"
-                },
-                {
-                    "weenieId": "43173",
-                    "name": "Foci of Shadow",
-                    "stacksize": "1"
-                },
-                {
-                    "weenieId": "691",
-                    "name": "Lead Scarab",
-                    "stacksize": "5"
-                },
-                {
-                    "weenieId": "20631",
-                    "name": "Prismatic Taper",
-                    "stacksize": "25"
                 }
             ],
             "spells": [
@@ -1257,14 +1140,7 @@
         },
         {
             "id": "54",
-            "name": "Summoning",
-            "gear": [
-                {
-                    "weenieId": "48886",
-                    "name": "Mud Golem Essence",
-                    "stacksize": "1"
-                }
-            ]
+            "name": "Summoning"
         }
     ]
 }

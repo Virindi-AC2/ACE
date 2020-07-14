@@ -86,6 +86,24 @@ namespace ACE.DatLoader
 
         public DatReader GetReaderForFile(uint fileId)
         {
+	    uint override_offset;
+	    uint override_filesize;
+	    FileStream override_filestream;
+
+	    if (GameChangerServer.ServerPluginCore.DatFileOverride(FilePath, fileId, out override_filestream, out override_offset, out override_filesize))
+	    {
+		if (override_filesize > 0)
+		{
+	        	DatReader dr = new DatReader(override_filestream, override_offset, override_filesize, uint.MaxValue);
+			return dr;
+		}
+		else
+		{
+			return null;
+		}
+		
+	    }
+
             if (AllFiles.TryGetValue(fileId, out var file))
             {
                 DatReader dr;
