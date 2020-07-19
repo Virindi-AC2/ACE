@@ -546,6 +546,7 @@ namespace ACE.Server.WorldObjects
             }
 
             var windupTime = 0.0f;
+			float modifiedcastspeed = CastSpeed * ACE.Server.GameplayAddons.MUManaCSpeed.GetPlayerSpellWindupSpeedMultiplier(this, spell);
 
             foreach (var windupGesture in spell.Formula.WindupGestures)
             {
@@ -553,14 +554,14 @@ namespace ACE.Server.WorldObjects
                 {
                     castChain.AddAction(this, () =>
                     {
-                        var animLength = Physics.Animation.MotionTable.GetAnimationLength(MotionTableId, CurrentMotionState.Stance, windupGesture, CastSpeed);
+                        var animLength = Physics.Animation.MotionTable.GetAnimationLength(MotionTableId, CurrentMotionState.Stance, windupGesture, modifiedcastspeed);
                         RecordCast.Log($"Windup Gesture: {windupGesture}, Windup Time: {animLength}");
                     });
                 }
 
                 // don't mess with CurrentMotionState here?
                 if (!FastTick)
-                    windupTime = EnqueueMotionMagic(castChain, windupGesture, CastSpeed);
+                    windupTime = EnqueueMotionMagic(castChain, windupGesture, modifiedcastspeed);
 
                 /*Console.WriteLine($"{spell.Name}");
                 Console.WriteLine($"Windup Gesture: " + windupGesture);
@@ -569,12 +570,13 @@ namespace ACE.Server.WorldObjects
             }
 
             if (FastTick)
-                windupTime = EnqueueMotionAction(castChain, spell.Formula.WindupGestures, CastSpeed, MotionStance.Magic);
+                windupTime = EnqueueMotionAction(castChain, spell.Formula.WindupGestures, modifiedcastspeed, MotionStance.Magic);
         }
 
         public void DoCastGesture(Spell spell, bool isWeaponSpell, ActionChain castChain)
         {
             MagicState.CastGesture = spell.Formula.CastGesture;
+			float modifiedcastspeed = CastSpeed * ACE.Server.GameplayAddons.MUManaCSpeed.GetPlayerSpellWindupSpeedMultiplier(this, spell, false);
 
             if (isWeaponSpell)
             {
@@ -587,7 +589,7 @@ namespace ACE.Server.WorldObjects
             {
                 castChain.AddAction(this, () =>
                 {
-                    var animLength = Physics.Animation.MotionTable.GetAnimationLength(MotionTableId, CurrentMotionState.Stance, MagicState.CastGesture, CastSpeed);
+                    var animLength = Physics.Animation.MotionTable.GetAnimationLength(MotionTableId, CurrentMotionState.Stance, MagicState.CastGesture, modifiedcastspeed);
                     RecordCast.Log($"Cast Gesture: {MagicState.CastGesture}, Cast Time: {animLength}");
                 });
             }
@@ -605,9 +607,9 @@ namespace ACE.Server.WorldObjects
 
             var castTime = 0.0f;
             if (FastTick)
-                castTime = EnqueueMotion(castChain, MagicState.CastGesture, CastSpeed, true, null, true);
+                castTime = EnqueueMotion(castChain, MagicState.CastGesture, modifiedcastspeed, true, null, true);
             else
-                castTime = EnqueueMotionMagic(castChain, MagicState.CastGesture, CastSpeed);
+                castTime = EnqueueMotionMagic(castChain, MagicState.CastGesture, modifiedcastspeed);
 
             //Console.WriteLine($"Cast Gesture: " + MagicState.CastGesture);
             //Console.WriteLine($"Cast time: " + castTime);
