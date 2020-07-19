@@ -144,7 +144,7 @@ namespace ACE.Entity.Enum
             Skill.SneakAttack,
             Skill.DirtyFighting,
             Skill.Summoning,
-			SpellEfficiency
+			Skill.SpellEfficiency
         };
 
         public static HashSet<Skill> AttackSkills = new HashSet<Skill>
