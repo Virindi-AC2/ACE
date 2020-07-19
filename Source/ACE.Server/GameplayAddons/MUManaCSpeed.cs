@@ -24,6 +24,9 @@ namespace ACE.Server.GameplayAddons
 			if (creatureSkill == null) return 1.0f;
 			if (creatureSkill.AdvancementClass != SkillAdvancementClass.Specialized) return 1.0f;
 
+			//Is the spell eligible?
+			if (spell.IsHarmful) return 1.0f;
+
 			float maximumreduction = 0.5f;
 
 			float sk = (float)creatureSkill.Current / 500f;

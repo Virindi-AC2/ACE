@@ -546,7 +546,7 @@ namespace ACE.Server.WorldObjects
             }
 
             var windupTime = 0.0f;
-			float modifiedcastspeed = CastSpeed * ACE.Server.GameplayAddons.MUManaCSpeed.GetPlayerSpellWindupSpeedMultiplier(this, spell);
+			float modifiedcastspeed = CastSpeed * ACE.Server.GameplayAddons.MUManaCSpeed.GetPlayerSpellWindupSpeedMultiplier(this, spell, false);
 
             foreach (var windupGesture in spell.Formula.WindupGestures)
             {
@@ -576,7 +576,7 @@ namespace ACE.Server.WorldObjects
         public void DoCastGesture(Spell spell, bool isWeaponSpell, ActionChain castChain)
         {
             MagicState.CastGesture = spell.Formula.CastGesture;
-			float modifiedcastspeed = CastSpeed * ACE.Server.GameplayAddons.MUManaCSpeed.GetPlayerSpellWindupSpeedMultiplier(this, spell, false);
+			float modifiedcastspeed = CastSpeed * ACE.Server.GameplayAddons.MUManaCSpeed.GetPlayerSpellWindupSpeedMultiplier(this, spell, true);
 
             if (isWeaponSpell)
             {
