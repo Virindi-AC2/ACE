@@ -31,7 +31,7 @@ namespace ACE.Server.GameplayAddons
 			else if (creatureSkill.AdvancementClass == SkillAdvancementClass.Specialized)
 				maximumreduction = 0.7f; //70% reduction
 
-			float sk = (float)playerSkill.Current / 500f;
+			float sk = (float)creatureSkill.Current / 500f;
 			if (sk > 1.0f) sk = 1.0f;
 			float reduction = maximumreduction * sk;
 
