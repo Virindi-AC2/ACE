@@ -35,7 +35,7 @@ namespace ACE.Server.GameplayAddons
 			if (sk > 1.0f) sk = 1.0f;
 			float reduction = maximumreduction * sk;
 
-			string reductionmsgamount = ((int)Math.Round(reduction)).ToString();
+			string reductionmsgamount = ((int)Math.Round(100f * reduction)).ToString();
 			player.Session.Network.EnqueueSend(new GameMessageSystemChat("Your Spell Efficiency skill reduced component burn by " + reductionmsgamount + "%.", ChatMessageType.Spellcasting));
 
 			return 1f - reduction;
