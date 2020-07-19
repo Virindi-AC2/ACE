@@ -12,6 +12,7 @@ using ACE.Server.Managers;
 using ACE.Server.Network.GameEvent.Events;
 using ACE.Server.Network.GameMessages.Messages;
 using ACE.Server.Physics;
+using ACE.Server.WorldObjects;
 
 namespace ACE.Server.GameplayAddons
 {
