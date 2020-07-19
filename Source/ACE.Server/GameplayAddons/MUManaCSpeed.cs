@@ -24,14 +24,17 @@ namespace ACE.Server.GameplayAddons
 			if (creatureSkill == null) return 1.0f;
 			if (creatureSkill.AdvancementClass != SkillAdvancementClass.Specialized) return 1.0f;
 
-			float maximumreduction = 0.8f;
+			float maximumreduction = 0.5f;
 
 			float sk = (float)creatureSkill.Current / 500f;
 			if (sk > 1.0f) sk = 1.0f;
 			float reduction = maximumreduction * sk;
 
-			string reductionmsgamount = ((int)Math.Round(100f * reduction)).ToString();
-			player.Session.Network.EnqueueSend(new GameMessageSystemChat("Your specialized Mana Conversion skill reduced casting time by " + reductionmsgamount + "%.", ChatMessageType.Spellcasting));
+			if (showmessage)
+			{
+				string reductionmsgamount = ((int)Math.Round(100f * reduction)).ToString();
+				player.Session.Network.EnqueueSend(new GameMessageSystemChat("Your specialized Mana Conversion skill reduced casting time by " + reductionmsgamount + "%.", ChatMessageType.Spellcasting));
+			}
 
 			return 1f + reduction;
 		}
