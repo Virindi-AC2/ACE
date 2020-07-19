@@ -33,7 +33,7 @@ namespace ACE.Server.GameplayAddons
 			string reductionmsgamount = ((int)Math.Round(100f * reduction)).ToString();
 			player.Session.Network.EnqueueSend(new GameMessageSystemChat("Your specialized Mana Conversion skill reduced casting time by " + reductionmsgamount + "%.", ChatMessageType.Spellcasting));
 
-			return 1f - reduction;
+			return 1f + reduction;
 		}
 	}
 }
