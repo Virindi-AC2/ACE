@@ -141,6 +141,7 @@ namespace ACE.Server.Entity
             // get magic skill mod
             var magicSkill = GetMagicSkill();
             var playerSkill = player.GetCreatureSkill(magicSkill);
+			var componentburnrating = ACE.Server.GameplayAddons.MUComponentBurn.GetPlayerBurnRateMultiplier(player, magicSkill);
             var skillMod = Math.Min(1.0f, (float)Power / playerSkill.Current);
             //Console.WriteLine($"TryBurnComponents.SkillMod: {skillMod}");
 
@@ -155,7 +156,7 @@ namespace ACE.Server.Entity
                 }
 
                 // component burn rate = spell base rate * component destruction modifier * skillMod?
-                var burnRate = baseRate * spellComponent.CDM * skillMod;
+                var burnRate = baseRate * spellComponent.CDM * skillMod * componentburnrating;
 
                 // TODO: curve?
                 var rng = ThreadSafeRandom.Next(0.0f, 1.0f);

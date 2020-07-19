@@ -64,7 +64,8 @@ namespace ACE.Entity.Enum
         SneakAttack,
         DirtyFighting,
         Challenge,          /* Unimplemented */
-        Summoning
+        Summoning,
+		SpellEfficiency,
     }
 
     public static class SkillExtensions
@@ -142,7 +143,8 @@ namespace ACE.Entity.Enum
             Skill.Recklessness,
             Skill.SneakAttack,
             Skill.DirtyFighting,
-            Skill.Summoning
+            Skill.Summoning,
+			SpellEfficiency
         };
 
         public static HashSet<Skill> AttackSkills = new HashSet<Skill>
