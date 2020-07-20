@@ -31,6 +31,7 @@ namespace ACE.Server.GameplayAddons
 
 			float sk = (float)creatureSkill.Current / 500f;
 			if (sk > 1.0f) sk = 1.0f;
+			if (sk < 0.0f) sk = 0.0f;
 			float reduction = maximumreduction * sk;
 
 			if (showmessage)
