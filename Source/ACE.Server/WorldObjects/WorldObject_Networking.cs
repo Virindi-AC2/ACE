@@ -75,7 +75,17 @@ namespace ACE.Server.WorldObjects
 
             writer.Write((uint)weenieFlags);
             writer.WriteString16L(Name ?? String.Empty);
-            writer.WritePackedDword(WeenieClassId);
+
+            if (adminvision || ((weenieFlags & WeenieHeaderFlag.MaxStackSize) != 0))
+	    {
+            	writer.WritePackedDword(WeenieClassId);
+	    }
+	    else
+            {
+            	writer.WritePackedDword((uint)1);
+            }
+
+
             writer.WritePackedDwordOfKnownType(IconId, 0x6000000);
             writer.Write((uint)ItemType);
             writer.Write((uint)objDescriptionFlags);
