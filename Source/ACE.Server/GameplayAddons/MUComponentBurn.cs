@@ -28,9 +28,21 @@ namespace ACE.Server.GameplayAddons
 			string val = e.Attributes["prop"].Value.ToUpperInvariant();
 			switch (val)
 			{
-				case "S_MAXIMUMSKILL": S_MAXIMUMSKILL = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
-				case "S_MAXIMUMREDUCTIONTRAINED": S_MAXIMUMREDUCTIONTRAINED = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
-				case "S_MAXIMUMREDUCTIONSPEC": S_MAXIMUMREDUCTIONSPEC = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
+				case "S_MAXIMUMSKILL":
+					{
+						S_MAXIMUMSKILL = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUComponentBurn S_MAXIMUMSKILL = " + S_MAXIMUMSKILL.ToString());
+					} break;
+				case "S_MAXIMUMREDUCTIONTRAINED":
+					{
+						S_MAXIMUMREDUCTIONTRAINED = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUComponentBurn S_MAXIMUMREDUCTIONTRAINED = " + S_MAXIMUMREDUCTIONTRAINED.ToString());
+					} break;
+				case "S_MAXIMUMREDUCTIONSPEC":
+					{
+						S_MAXIMUMREDUCTIONSPEC = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUComponentBurn S_MAXIMUMREDUCTIONSPEC = " + S_MAXIMUMREDUCTIONSPEC.ToString());
+					} break;
 			}
 		}
 

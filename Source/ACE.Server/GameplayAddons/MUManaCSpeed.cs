@@ -27,8 +27,16 @@ namespace ACE.Server.GameplayAddons
 			string val = e.Attributes["prop"].Value.ToUpperInvariant();
 			switch (val)
 			{
-				case "S_MAXIMUMSKILL": S_MAXIMUMSKILL = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
-				case "S_MAXIMUMREDUCTION": S_MAXIMUMREDUCTION = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
+				case "S_MAXIMUMSKILL":
+					{
+						S_MAXIMUMSKILL = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUManaCSpeed S_MAXIMUMSKILL = " + S_MAXIMUMSKILL.ToString());
+					} break;
+				case "S_MAXIMUMREDUCTION":
+					{
+						S_MAXIMUMREDUCTION = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUManaCSpeed S_MAXIMUMREDUCTION = " + S_MAXIMUMREDUCTION.ToString());
+					} break;
 			}
 		}
 
