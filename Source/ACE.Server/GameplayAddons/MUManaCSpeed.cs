@@ -42,6 +42,8 @@ namespace ACE.Server.GameplayAddons
 
 		public static float GetPlayerSpellWindupSpeedMultiplier(Player player, Spell spell, bool showmessage = true)
 		{
+			MUSettings.Init();
+
 			var creatureSkill = player.GetCreatureSkill(Skill.ManaConversion, false);
 			if (creatureSkill == null) return 1.0f;
 			if (creatureSkill.AdvancementClass != SkillAdvancementClass.Specialized) return 1.0f;

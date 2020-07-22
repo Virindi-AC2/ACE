@@ -48,6 +48,8 @@ namespace ACE.Server.GameplayAddons
 
 		public static float GetPlayerBurnRateMultiplier(Player player, Skill spellskill)
 		{
+			MUSettings.Init();
+
 			var creatureSkill = player.GetCreatureSkill(Skill.SpellEfficiency, false);
 			if (creatureSkill == null) return 1.0f;
 			if (creatureSkill.AdvancementClass < SkillAdvancementClass.Trained) return 1.0f;

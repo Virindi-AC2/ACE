@@ -24,6 +24,8 @@ namespace ACE.Server.GameplayAddons
 			ReadSettings();
 		}
 
+		public static void Init() { }
+
 		public static void ReadSettings()
 		{
 			XmlDocument doc = new XmlDocument();
