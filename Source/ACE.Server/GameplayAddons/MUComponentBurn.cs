@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 
 using ACE.Common;
 using ACE.DatLoader;
@@ -18,6 +19,21 @@ namespace ACE.Server.GameplayAddons
 {
 	public static class MUComponentBurn
 	{
+		static float S_MAXIMUMREDUCTIONTRAINED = 1f;
+		static float S_MAXIMUMREDUCTIONSPEC = 1f;
+		static float S_MAXIMUMSKILL = 1f;
+
+		public static void ReadSetting(XmlElement e)
+		{
+			string val = e.Attributes["prop"].Value.ToUpperInvariant();
+			switch (val)
+			{
+				case "S_MAXIMUMSKILL": S_MAXIMUMSKILL = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
+				case "S_MAXIMUMREDUCTIONTRAINED": S_MAXIMUMREDUCTIONTRAINED = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
+				case "S_MAXIMUMREDUCTIONSPEC": S_MAXIMUMREDUCTIONSPEC = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture); break;
+			}
+		}
+
 		public static float GetPlayerBurnRateMultiplier(Player player, Skill spellskill)
 		{
 			var creatureSkill = player.GetCreatureSkill(Skill.SpellEfficiency, false);
@@ -27,11 +43,11 @@ namespace ACE.Server.GameplayAddons
 			float maximumreduction = 0f;
 
 			if (creatureSkill.AdvancementClass == SkillAdvancementClass.Trained)
-				maximumreduction = 0.2f; //20% reduction
+				maximumreduction = S_MAXIMUMREDUCTIONTRAINED;
 			else if (creatureSkill.AdvancementClass == SkillAdvancementClass.Specialized)
-				maximumreduction = 0.7f; //70% reduction
+				maximumreduction = S_MAXIMUMREDUCTIONSPEC;
 
-			float sk = (float)creatureSkill.Current / 500f;
+			float sk = (float)creatureSkill.Current / S_MAXIMUMSKILL;
 			if (sk > 1.0f) sk = 1.0f;
 			if (sk < 0.0f) sk = 0.0f;
 			float reduction = maximumreduction * sk;
