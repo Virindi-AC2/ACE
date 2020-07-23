@@ -200,6 +200,7 @@ namespace ACE.Server.WorldObjects
                     valueFactor *= GetCreatureSkill(Skill.Salvaging).Current / 387.0f * (1.0f + 0.25f * AugmentationBonusSalvage);
 
                 var addedValue = (int)Math.Round((item.Value ?? 0) * valueFactor);
+				ACE.Server.GameplayAddons.MUSalvageValue.ModifySalvageOuputValue(addedValue);
 
                 salvageBag.Value = Math.Min((salvageBag.Value ?? 0) + addedValue, 75000);
 
