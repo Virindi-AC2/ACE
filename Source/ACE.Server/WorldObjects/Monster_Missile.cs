@@ -181,7 +181,9 @@ namespace ACE.Server.WorldObjects
             // FIXME: use actual projectile, instead of currently equipped ammo
             var ammo = GetMissileAmmo();
 
-            return ammo.GetDamageMod(this);
+			BaseDamageMod ammodamagemod = ammo.GetDamageMod(this);
+			ACE.Server.GameplayAddons.MUMonsterDifficulty.ScaleDamageRanged(this, ammodamagemod);
+            return ammodamagemod;
         }
 
         // reset between targets?

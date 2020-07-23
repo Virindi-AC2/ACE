@@ -30,5 +30,22 @@ namespace ACE.Server.GameplayAddons
 			//c.Mana.MaxValue = (int)((float)c.Mana.MaxValue * 1.2f);
 			//c.Mana.Current = c.Mana.MaxValue;
 		}
+
+		public static void ScaleDamageMelee(ACE.Server.WorldObjects.Creature c, ACE.Server.Entity.DamageEvent d)
+		{
+			if (!c.IsMonster) return;
+
+			if (d.HasDamage)
+			{
+				d.Damage *= 1.2f;
+			}
+		}
+
+		public static void ScaleDamageRanged(ACE.Server.WorldObjects.Creature c, ACE.Server.Entity.BaseDamageMod d)
+		{
+			if (!c.IsMonster) return;
+
+			d.BaseDamage.MaxDamage = (int)((float)d.BaseDamage.MaxDamage * 1.4f);
+		}
 	}
 }

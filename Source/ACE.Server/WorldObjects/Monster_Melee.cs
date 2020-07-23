@@ -86,6 +86,7 @@ namespace ACE.Server.WorldObjects
 
                     var weapon = GetEquippedWeapon();
                     var damageEvent = DamageEvent.CalculateDamage(this, target, weapon, motionCommand);
+					ACE.Server.GameplayAddons.MUMonsterDifficulty.ScaleDamageMelee(this, damageEvent);
 
                     //var damage = CalculateDamage(ref damageType, maneuver, bodyPart, ref critical, ref shieldMod);
 
