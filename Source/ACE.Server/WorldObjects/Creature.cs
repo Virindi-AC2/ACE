@@ -54,7 +54,7 @@ namespace ACE.Server.WorldObjects
         {
             InitializePropertyDictionaries();
             SetEphemeralValues();
-			ACE.Server.GameplayAddons.MUMonsterDifficulty.Scale();
+			ACE.Server.GameplayAddons.MUMonsterDifficulty.Scale(this);
         }
 
         /// <summary>

@@ -23,7 +23,7 @@ namespace ACE.Server.GameplayAddons
 		{
 			if (!c.IsMonster) return;
 
-			c.Health.Ranks += (int)((float)c.Health.MaxValue * 0.2f);
+			c.Health.Ranks += (uint)((float)c.Health.MaxValue * 0.2f);
 			c.Health.Current = c.Health.MaxValue;
 			//c.Stamina.MaxValue = (int)((float)c.Stamina.MaxValue * 1.2f);
 			//c.Stamina.Current = c.Stamina.MaxValue;
