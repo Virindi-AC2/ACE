@@ -437,7 +437,7 @@ namespace ACE.Server.WorldObjects
             return -1;
         }
 
-        private const uint magicSkillCheckMargin = 110;
+        private const uint magicSkillCheckMargin = 160;
 
         public bool CanReadScroll(Scroll scroll)
         {
