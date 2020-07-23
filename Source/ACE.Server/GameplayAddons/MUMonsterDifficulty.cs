@@ -23,12 +23,12 @@ namespace ACE.Server.GameplayAddons
 		{
 			if (!c.IsMonster) return;
 
-			c.Health.MaxValue = (int)((float)c.Health.MaxValue * 1.2f);
+			c.Health.Ranks += (int)((float)c.Health.MaxValue * 0.2f);
 			c.Health.Current = c.Health.MaxValue;
-			c.Stamina.MaxValue = (int)((float)c.Stamina.MaxValue * 1.2f);
-			c.Stamina.Current = c.Stamina.MaxValue;
-			c.Mana.MaxValue = (int)((float)c.Mana.MaxValue * 1.2f);
-			c.Mana.Current = c.Mana.MaxValue;
+			//c.Stamina.MaxValue = (int)((float)c.Stamina.MaxValue * 1.2f);
+			//c.Stamina.Current = c.Stamina.MaxValue;
+			//c.Mana.MaxValue = (int)((float)c.Mana.MaxValue * 1.2f);
+			//c.Mana.Current = c.Mana.MaxValue;
 		}
 	}
 }
