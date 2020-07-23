@@ -125,6 +125,8 @@ namespace ACE.Server.WorldObjects
         /// </summary>
         public void HandleActionTeleToLifestone()
         {
+			Session.Network.EnqueueSend(new GameMessageSystemChat("Lifestone recall is disabled.", ChatMessageType.Broadcast));
+            return;
             if (PKTimerActive)
             {
                 Session.Network.EnqueueSend(new GameEventWeenieError(Session, WeenieError.YouHaveBeenInPKBattleTooRecently));
@@ -255,6 +257,8 @@ namespace ACE.Server.WorldObjects
 
         public void HandleActionRecallAllegianceHometown()
         {
+			Session.Network.EnqueueSend(new GameMessageSystemChat("Hometown is disabled.", ChatMessageType.Broadcast));
+            return;
             //Console.WriteLine($"{Name}.HandleActionRecallAllegianceHometown()");
 
             if (PKTimerActive)
@@ -430,6 +434,8 @@ namespace ACE.Server.WorldObjects
 
         public void HandleActionTeleToPkArena()
         {
+			Session.Network.EnqueueSend(new GameMessageSystemChat("Arena is disabled.", ChatMessageType.Broadcast));
+            return;
             //Console.WriteLine($"{Name}.HandleActionTeleToPkArena()");
 
             if (PlayerKillerStatus != PlayerKillerStatus.PK)
@@ -508,6 +514,8 @@ namespace ACE.Server.WorldObjects
 
         public void HandleActionTeleToPklArena()
         {
+			Session.Network.EnqueueSend(new GameMessageSystemChat("Arena is disabled.", ChatMessageType.Broadcast));
+            return;
             //Console.WriteLine($"{Name}.HandleActionTeleToPkLiteArena()");
 
             if (PlayerKillerStatus != PlayerKillerStatus.PKLite)
