@@ -192,6 +192,8 @@ namespace ACE.Server.WorldObjects
 
         public void HandleActionTeleToMarketPlace()
         {
+			Session.Network.EnqueueSend(new GameMessageSystemChat("The Marketplace is disabled.", ChatMessageType.Broadcast));
+            return;
             if (PKTimerActive)
             {
                 Session.Network.EnqueueSend(new GameEventWeenieError(Session, WeenieError.YouHaveBeenInPKBattleTooRecently));
