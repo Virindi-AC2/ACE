@@ -37,7 +37,7 @@ namespace ACE.Server.GameplayAddons
 
 			if (d.HasDamage)
 			{
-				d.Damage *= 2.0f;
+				d.Damage *= 2.2f;
 			}
 		}
 
@@ -45,7 +45,7 @@ namespace ACE.Server.GameplayAddons
 		{
 			if (!c.IsMonster) return;
 
-			d.BaseDamage.MaxDamage = (int)((float)d.BaseDamage.MaxDamage * 2.0f);
+			d.BaseDamage.MaxDamage = (int)((float)d.BaseDamage.MaxDamage * 2.2f);
 		}
 	}
 }
