@@ -37,7 +37,7 @@ namespace ACE.Server.GameplayAddons
 
 			if (d.HasDamage)
 			{
-				d.Damage *= 1.8f;
+				d.Damage *= 2.0f;
 			}
 		}
 
