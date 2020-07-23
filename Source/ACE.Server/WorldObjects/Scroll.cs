@@ -96,9 +96,6 @@ namespace ACE.Server.WorldObjects
                 if (!player.CanReadScroll(this))
                 {
                     var msg = "";
-                    if (playerSkill.AdvancementClass < SkillAdvancementClass.Trained)
-                        msg = $"You are not trained in {playerSkill.Skill.ToSentence()}!";
-                    else
                         msg = $"You are not skilled enough in {playerSkill.Skill.ToSentence()} to learn this spell.";
 
                     player.Session.Network.EnqueueSend(new GameMessageSystemChat(msg, ChatMessageType.Broadcast));
