@@ -1070,7 +1070,7 @@ namespace ACE.Server.WorldObjects
 
         public void HandleActionEnterPkLite()
         {
-			Session.Network.EnqueueSend(new GameMessageSystemChat("PKLite is disabled.", ChatMessageType.Broadcast));
+			Session.Network.EnqueueSend(new GameMessageSystemChat("PKLite is disabled. Go red, n00b!", ChatMessageType.Broadcast));
             return;
             // ensure permanent npk
             if (PlayerKillerStatus != PlayerKillerStatus.NPK || MinimumTimeSincePk != null)
