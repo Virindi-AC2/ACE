@@ -437,7 +437,7 @@ namespace ACE.Server.WorldObjects
             return -1;
         }
 
-        private const uint magicSkillCheckMargin = 50;
+        private const uint magicSkillCheckMargin = 110;
 
         public bool CanReadScroll(Scroll scroll)
         {
@@ -451,7 +451,8 @@ namespace ACE.Server.WorldObjects
 
             var minSkill = power - magicSkillCheckMargin;
 
-            return playerSkill.AdvancementClass >= SkillAdvancementClass.Trained && playerSkill.Current >= minSkill;
+            //return playerSkill.AdvancementClass >= SkillAdvancementClass.Trained && playerSkill.Current >= minSkill;
+			return playerSkill.Current >= minSkill;
         }
 
         public void AddSkillCredits(int amount, bool showText)
