@@ -76,7 +76,7 @@ namespace ACE.Server.GameplayAddons
 				target.Value = (int)Math.Round((target.Value ?? 1) + S_TINKERFIXEDVALUEINCREASE);
 			}
 
-			return true;
+			return;
 		}
 	}
 }
