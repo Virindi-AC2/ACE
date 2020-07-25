@@ -32,17 +32,17 @@ namespace ACE.Server.GameplayAddons
 				case "S_TINKERFIXEDBURDENINCREASE":
 					{
 						S_TINKERFIXEDBURDENINCREASE = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
-						Console.WriteLine("MUMonsterDifficulty S_TINKERFIXEDBURDENINCREASE = " + S_TINKERFIXEDBURDENINCREASE.ToString());
+						Console.WriteLine("MUTinkeringChanges S_TINKERFIXEDBURDENINCREASE = " + S_TINKERFIXEDBURDENINCREASE.ToString());
 					} break;
 				case "S_TINKERMULTVALUEINCREASE":
 					{
 						S_TINKERMULTVALUEINCREASE = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
-						Console.WriteLine("MUMonsterDifficulty S_TINKERMULTVALUEINCREASE = " + S_TINKERMULTVALUEINCREASE.ToString());
+						Console.WriteLine("MUTinkeringChanges S_TINKERMULTVALUEINCREASE = " + S_TINKERMULTVALUEINCREASE.ToString());
 					} break;
 				case "S_TINKERFIXEDVALUEINCREASE":
 					{
 						S_TINKERFIXEDVALUEINCREASE = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
-						Console.WriteLine("MUMonsterDifficulty S_TINKERFIXEDVALUEINCREASE = " + S_TINKERFIXEDVALUEINCREASE.ToString());
+						Console.WriteLine("MUTinkeringChanges S_TINKERFIXEDVALUEINCREASE = " + S_TINKERFIXEDVALUEINCREASE.ToString());
 					} break;
 			}
 		}
