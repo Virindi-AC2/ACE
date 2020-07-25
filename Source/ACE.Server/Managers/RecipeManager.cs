@@ -330,10 +330,10 @@ namespace ACE.Server.Managers
 
             if (success)
             {
-                Tinkering_ModifyItem(player, tool, target, incItemTinkered);
+                bool showmsg = Tinkering_ModifyItem(player, tool, target, incItemTinkered);
 
                 // send local broadcast
-                if (incItemTinkered)
+                if (showmsg && incItemTinkered)
                     player.EnqueueBroadcast(new GameMessageSystemChat($"{player.Name} successfully applies the {sourceName} (workmanship {(tool.Workmanship ?? 0):#.00}) to the {target.NameWithMaterial}.", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
             }
             else if (incItemTinkered)
@@ -345,13 +345,18 @@ namespace ACE.Server.Managers
                 player.SendUseDoneEvent();
         }
 
-        public static void Tinkering_ModifyItem(Player player, WorldObject tool, WorldObject target, bool incItemTinkered = true)
+        public static bool Tinkering_ModifyItem(Player player, WorldObject tool, WorldObject target, bool incItemTinkered = true)
         {
             var recipe = GetRecipe(player, tool, target);
 
-            if (tool.MaterialType == null) return;
+            if (tool.MaterialType == null) return false;
 
             var materialType = tool.MaterialType.Value;
+
+			if (!ACE.Server.GameplayAddons.MUTinkeringChanges.BeforeTinkering(
+				materialType,player,tool,target,incItemTinkered
+				))
+				return false;
 
             switch (materialType)
             {
@@ -428,7 +433,7 @@ namespace ACE.Server.Managers
                 case MaterialType.Copper:
 
                     if (target.WieldSkillType != (int)Skill.MissileDefense)
-                        return;
+                        return false;
 
                     // change wield requirement: missile defense -> melee defense
                     target.WieldSkillType = (int)Skill.MeleeDefense;
@@ -456,7 +461,7 @@ namespace ACE.Server.Managers
                 case MaterialType.Silver:
 
                     if (target.WieldSkillType != (int)Skill.MeleeDefense)
-                        return;
+                        return false;
 
                     // change wield requirement: melee defense -> missile defense
                     target.WieldSkillType = (int)Skill.MissileDefense;
@@ -496,7 +501,7 @@ namespace ACE.Server.Managers
                 case MaterialType.Pyreal:
                 case MaterialType.Ruby:
                 case MaterialType.Sapphire:
-                    return;
+                    return true;
 
                 // magic item tinkering
 
@@ -600,7 +605,7 @@ namespace ACE.Server.Managers
                     break;
                 default:
                     log.Error($"{player.Name}.RecipeManager.Tinkering_ModifyItem({tool.Name} ({tool.Guid}), {target.Name} ({target.Guid})) - Unknown material type: {materialType}");
-                    return;
+                    return false;
             }
 
             // increase # of times tinkered, if appropriate
@@ -612,6 +617,10 @@ namespace ACE.Server.Managers
                     target.TinkerLog += ",";
                 target.TinkerLog += (int)materialType;
             }
+
+			ACE.Server.GameplayAddons.MUTinkeringChanges.AfterTinkering(
+				materialType,player,tool,target,incItemTinkered);
+			return true;
         }
 
         public static void AddSpell(Player player, WorldObject target, SpellId spell, int difficulty = 25)

@@ -19,11 +19,39 @@ namespace ACE.Server.GameplayAddons
 {
 	static class MUMonsterDifficulty
 	{
+		public static float S_MONSTERHPINCREASE = 0f;
+		public static float S_MONSTERMELEEDMGINCREASE = 1f;
+		public static float S_MONSTERMISSILEDMGINCREASE = 1f;
+
+		public static void ReadSetting(XmlElement e)
+		{
+			string val = e.Attributes["prop"].Value.ToUpperInvariant();
+			switch (val)
+			{
+				case "S_MONSTERHPINCREASE":
+					{
+						S_MONSTERHPINCREASE = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUMonsterDifficulty S_MONSTERHPINCREASE = " + S_MONSTERHPINCREASE.ToString());
+					} break;
+				case "S_MONSTERMELEEDMGINCREASE":
+					{
+						S_MONSTERMELEEDMGINCREASE = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUMonsterDifficulty S_MONSTERMELEEDMGINCREASE = " + S_MONSTERMELEEDMGINCREASE.ToString());
+					} break;
+				case "S_MONSTERMISSILEDMGINCREASE":
+					{
+						S_MONSTERMISSILEDMGINCREASE = float.Parse(e.Attributes["value"].Value, System.Globalization.CultureInfo.InvariantCulture);
+						Console.WriteLine("MUMonsterDifficulty S_MONSTERMISSILEDMGINCREASE = " + S_MONSTERMISSILEDMGINCREASE.ToString());
+					} break;
+			}
+		}
+
+
 		public static void Scale(ACE.Server.WorldObjects.Creature c)
 		{
 			if (!c.IsMonster) return;
 
-			c.Health.Ranks += (uint)((float)c.Health.MaxValue * 0.2f);
+			c.Health.Ranks += (uint)((float)c.Health.MaxValue * S_MONSTERHPINCREASE);
 			c.Health.Current = c.Health.MaxValue;
 			//c.Stamina.MaxValue = (int)((float)c.Stamina.MaxValue * 1.2f);
 			//c.Stamina.Current = c.Stamina.MaxValue;
@@ -37,7 +65,7 @@ namespace ACE.Server.GameplayAddons
 
 			if (d.HasDamage)
 			{
-				d.Damage *= 2.2f;
+				d.Damage *= S_MONSTERMELEEDMGINCREASE;
 			}
 		}
 
@@ -45,7 +73,7 @@ namespace ACE.Server.GameplayAddons
 		{
 			if (!c.IsMonster) return;
 
-			d.BaseDamage.MaxDamage = (int)((float)d.BaseDamage.MaxDamage * 2.2f);
+			d.BaseDamage.MaxDamage = (int)((float)d.BaseDamage.MaxDamage * S_MONSTERMISSILEDMGINCREASE);
 		}
 	}
 }

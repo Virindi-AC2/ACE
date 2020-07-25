@@ -37,9 +37,10 @@ namespace ACE.Server.GameplayAddons
 				string group = e.Attributes["group"].Value.ToUpperInvariant();
 				switch (group)
 				{
-					//case "TESTCLASS": ReadSetting_testclass(e); break;
 					case "MUCOMPONENTBURN": MUComponentBurn.ReadSetting(e); break;
 					case "MUMANACSPEED": MUManaCSpeed.ReadSetting(e); break;
+					case "MUMONSTERDIFFICULTY": MUMonsterDifficulty.ReadSetting(e); break;
+					case "MUTINKERINGCHANGES": MUTinkeringChanges.ReadSetting(e); break;
 				}
 			}
 		}
